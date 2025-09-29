@@ -1,0 +1,367 @@
+/* Сайт розроблено студентом Каріна Корнієнко (Писаренко), група ФЕМП-5-3з */
+/* Базові стилі */
+:root {
+  --bg:#0f172a;
+  --card:#111827;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --brand:#60a5fa;
+  --brand-2:#34d399;
+  --danger:#ef4444;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html, body {
+  margin:0;
+  padding:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:#0b1020;
+  color:var(--text);
+  height:100%;
+}
+
+/* Sticky footer layout */
+body {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+main.container {
+  flex:1 0 auto;
+}
+.site-footer {
+  margin-top:auto;
+}
+
+a {
+  color:var(--brand);
+  text-decoration:none;
+}
+
+.container {
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 16px;
+}
+
+.center {
+  text-align:center;
+}
+.muted {
+  color:var(--muted);
+}
+
+/* Header */
+.site-header {
+  position:sticky;
+  top:0;
+  background:rgba(17,24,39,.8);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid #1f2937;
+  z-index:10;
+}
+.header-container {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:60px;
+}
+.logo {
+  font-weight:800;
+  color:#fff;
+  font-size:20px;
+}
+.nav {
+  display:flex;
+  gap:14px;
+}
+.nav-link {
+  padding:8px 10px;
+  border-radius:10px;
+  color:#cbd5e1;
+}
+.nav-link.active,
+.nav-link:hover {
+  background:#1f2937;
+  color:#fff;
+}
+
+/* Footer */
+.site-footer {
+  border-top:1px solid #1f2937;
+  background:#0b1225;
+}
+.site-footer .container {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 0;
+  color:#a3a3a3;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+/* Hero */
+.hero {
+  padding:48px 0 24px;
+  text-align:center;
+}
+.hero h1 {
+  font-size:40px;
+  margin:0 0 8px;
+}
+.hero p {
+  color:#a3a3a3;
+  margin:0 0 16px;
+}
+.btn {
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:12px;
+  border:1px solid #334155;
+}
+.btn-primary {
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#001029;
+  border:none;
+}
+.btn-outline {
+  color:#cbd5e1;
+}
+.btn:active {
+  transform:translateY(1px);
+}
+
+/* Grid */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+@media (max-width:900px) {
+  .grid { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:600px) {
+  .grid { grid-template-columns:1fr; }
+}
+
+/* Cards */
+.card {
+  background:#0f172a;
+  border:1px solid #1f2937;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+.card img {
+  display:block;
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.card-body {
+  padding:12px 12px 14px;
+}
+.card-title {
+  margin:0 0 6px;
+}
+.tour-title {
+  margin:0;
+}
+.price-row {
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  margin:0 0 8px;
+}
+.price {
+  font-weight:700;
+  line-height:1;
+}
+.price-row small {
+  color:var(--muted);
+}
+
+/* Filters */
+.filters {
+  display:flex;
+  gap:10px;
+  margin-bottom:12px;
+}
+.filters input,
+.filters select {
+  flex:1;
+  background:#0f172a;
+  color:#e5e7eb;
+  border:1px solid #243145;
+  border-radius:12px;
+  padding:10px;
+}
+
+/* Content */
+.content {
+  max-width:760px;
+  margin:0 auto;
+}
+.content h1 {
+  margin-top:8px;
+}
+
+/* Modal */
+.modal[aria-hidden="true"] { display:none; }
+.modal {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+}
+.modal .dialog {
+  background:#0b1225;
+  border:1px solid #243145;
+  border-radius:16px;
+  max-width:520px;
+  width:100%;
+  padding:18px;
+}
+.modal .dialog h3 {
+  margin:0 0 10px;
+}
+.form-row {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:10px 0;
+}
+.form-row label {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:14px;
+}
+input, select, textarea {
+  background:#0f172a;
+  color:#e5e7eb;
+  border:1px solid #243145;
+  border-radius:12px;
+  padding:10px;
+}
+.total {
+  font-size:20px;
+  margin-top:6px;
+}
+.dialog-actions {
+  display:flex;
+  gap:10px;
+  justify-content:flex-end;
+  margin-top:12px;
+}
+.btn-danger {
+  background:var(--danger);
+  color:white;
+  border:none;
+}
+
+/* Tours preview spacing */
+.tours-preview h2 { margin:20px 0 10px; }
+.tours-preview .center { margin-top:12px; }
+.how-it-works { margin-top:24px; }
+.how-it-works ol { line-height:1.9; }
+
+/* Контактна форма */
+.contact-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.contact-form label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #243145;
+  background: #111827;
+  color: #e5e7eb;
+  font-size: 15px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form button {
+  margin-top: 10px;
+}
+
+.contact-info {
+  margin-top: 30px;
+  line-height: 1.8;
+}
+.contact-info strong {
+  color: #fff;
+}
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #9ca3af;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-right span {
+  color: #a3a3a3;
+}
+
+.footer-right .github-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #9ca3af;
+  transition: color 0.2s;
+}
+
+.footer-right .github-link:hover {
+  color: #fff;
+}
+
